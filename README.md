@@ -4,7 +4,7 @@ Generate a GPG key for a GitLab bot and store the private key as a masked/protec
 
 ## What it does
 - creates a GPG key
-- uploads the private key to the target project as a CI/CD Variable
+- uploads the private key to the target project as a base64 encoded CI/CD Variable
 - replaces any existing key with the same name
 - adds the matching public key to the bot user on GitLab
 
