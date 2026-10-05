@@ -8,27 +8,32 @@ def new_client(host: str, token: str) -> gitlab.Gitlab:
     gl.auth()
     return gl
 
+
 # Project operations:
+
 
 def get_project_name(target) -> str:
     return target.asdict()["name"]
 
+
 def delete_ci_var(key: str, target):
     for var in target.variables.list():
-            if var.asdict()["key"] == key:
-                var.delete()
+        if var.asdict()["key"] == key:
+            var.delete()
+
 
 def overwrite_or_create_ci_secret(target, key: str, value: str):
     delete_ci_var(key, target)
 
-    return target.variables.create({
-        'key': key,
-        'value': value,
-        'masked_and_hidden': True,
-        'protected': True,
-        'raw': True
-    })
-
+    return target.variables.create(
+        {
+            "key": key,
+            "value": value,
+            "masked_and_hidden": True,
+            "protected": True,
+            "raw": True,
+        }
+    )
 
 
 # User operations:
@@ -37,11 +42,13 @@ def overwrite_or_create_ci_secret(target, key: str, value: str):
 def set_gpg_key(user, key: str):
     for k in user.gpgkeys.list():
         k.delete()
-     
-    user.gpgkeys.create({'key': str(key)})
+
+    user.gpgkeys.create({"key": str(key)})
+
 
 def get_user_name(user) -> str:
     return user.asdict()["name"]
+
 
 def get_user_email(user) -> str:
     return user.emails.list()[0].asdict()["email"]
