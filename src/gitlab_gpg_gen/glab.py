@@ -8,6 +8,11 @@ def new_client(host: str, token: str) -> gitlab.Gitlab:
     gl.auth()
     return gl
 
+# Project operations:
+
+def get_project_name(target) -> str:
+    return target.asdict()["name"]
+
 def delete_ci_var(key: str, target):
     for var in target.variables.list():
             if var.asdict()["key"] == key:
@@ -23,6 +28,11 @@ def overwrite_or_create_ci_secret(target, key: str, value: str):
         'protected': True,
         'raw': True
     })
+
+
+
+# User operations:
+
 
 def set_gpg_key(user, key: str):
     for k in user.gpgkeys.list():
