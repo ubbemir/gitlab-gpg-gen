@@ -1,6 +1,6 @@
-import pgpy
 import base64
 
+import pgpy
 from pgpy.constants import PubKeyAlgorithm
 
 

@@ -1,9 +1,6 @@
 import os
 
-from . import gpg
-from . import glab
-from . import constants
-from . import config
+from . import config, constants, glab, gpg
 
 
 def main():
