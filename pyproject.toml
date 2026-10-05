@@ -1,7 +1,7 @@
 [project]
 name = "gitlab-gpg-gen"
 version = "0.1.0"
-description = "Add your description here"
+description = "Generate a GPG key for a GitLab bot and store the private key as a masked/protected CI/CD variable on a project."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
