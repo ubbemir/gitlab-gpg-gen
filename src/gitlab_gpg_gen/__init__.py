@@ -1,5 +1,3 @@
-import os
-
 from . import config, constants, glab, gpg
 
 
