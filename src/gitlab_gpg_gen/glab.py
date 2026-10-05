@@ -29,3 +29,6 @@ def set_gpg_key(user, key: str):
         k.delete()
      
     user.gpgkeys.create({'key': str(key)})
+
+def get_user_email(user) -> str:
+    return user.emails.list()[0].asdict()["email"]
