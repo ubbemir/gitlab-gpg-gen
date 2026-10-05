@@ -12,8 +12,7 @@ def main():
     bot_user = bot_client.user
 
 
-    bot_name = bot_user.asdict()["name"]
-    bot_email = glab.get_user_email(bot_user)
+    (bot_name, bot_email) = (glab.get_user_name(bot_user), glab.get_user_email(bot_user))
     print(f"Got Bot '{bot_name}' email: {bot_email}")
     key = gpg.generate_gpg_key(bot_name, bot_email)
 
